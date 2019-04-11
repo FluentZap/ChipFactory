@@ -6,6 +6,10 @@ function ChipFactory() {
   this.chipInventory = [];
   var greenInv = new InventoryItem("Green", 0);
   this.chipInventory.push(greenInv);
+  var redInv = new InventoryItem("Red", 0);
+  this.chipInventory.push(redInv);
+  var blueInv = new InventoryItem("Blue", 0);
+  this.chipInventory.push(blueInv);
   this.copperInventory = 5000;
   this.plasticInventory = 5000;
   this.acidInventory = 5000;
@@ -18,8 +22,14 @@ ChipFactory.prototype.createChip = function (chipType) {
 
 ChipFactory.prototype.addToInventory = function(chipType, quantity) {
   //var newChip = new InventoryItem(chipType, quantity)
-  if (chipType === this.chipInventory[0].chipType){
+  if (chipType === this.chipInventory[0].chipType) {
     this.chipInventory[0].quantity += quantity;
+  } else if (chipType === this.chipInventory[1].chipType) {
+    this.chipInventory[1].quantity += quantity;
+  } else if (chipType === this.chipInventory[2].chipType){
+    this.chipInventory[2].quantity += quantity;
+  } else {
+    alert("WTF DUDE?!")
   }
   //this.chipInventory.push(newChip);
 }
