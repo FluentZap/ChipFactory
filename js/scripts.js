@@ -23,20 +23,32 @@ ChipFactory.prototype.createChip = function (chipType) {
 ChipFactory.prototype.addToInventory = function(chipType, quantity) {
   //var newChip = new InventoryItem(chipType, quantity)
   if (chipType === this.chipInventory[0].chipType) {
-    this.copperInventory -= quantity
-    this.plasticInventory -= (quantity*2)
-    this.acidInventory -= (quantity*2)
-    this.chipInventory[0].quantity += quantity;
+    if (this.copperInventory >= quantity || this.plasticInventory >= (quantity * 2) || this.acidInventory >= (quantity * 2)) {
+      this.copperInventory -= quantity
+      this.plasticInventory -= (quantity*2)
+      this.acidInventory -= (quantity*2)
+      this.chipInventory[0].quantity += quantity;
+    } else {
+      alert("Click to buy more materials:      https://www.alibaba.com/showroom/plastic-raw-materials-prices.html")
+    }
   } else if (chipType === this.chipInventory[1].chipType) {
-    this.copperInventory -= (quantity*2)
-    this.plasticInventory -= quantity
-    this.acidInventory -= quantity
-    this.chipInventory[1].quantity += quantity;
+    if (this.copperInventory >= (quantity*2) || this.plasticInventory >= quantity || this.acidInventory >= quantity) {
+      this.copperInventory -= (quantity*2)
+      this.plasticInventory -= quantity
+      this.acidInventory -= quantity
+      this.chipInventory[1].quantity += quantity;
+    } else {
+      alert("tough SHIT");
+    }
   } else if (chipType === this.chipInventory[2].chipType){
-    this.copperInventory -= quantity
-    this.plasticInventory -= (quantity*2)
-    this.acidInventory -= quantity
-    this.chipInventory[2].quantity += quantity;
+    if (this.copperInventory >= quantity || this.plasticInventory >= (quantity*2) || this.acidInventory >= quantity) {
+      this.copperInventory -= quantity
+      this.plasticInventory -= (quantity*2)
+      this.acidInventory -= quantity
+      this.chipInventory[2].quantity += quantity;
+    } else {
+      alert("NO");
+    }
   } else {
     alert("WTF DUDE?!")
   }
